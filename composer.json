@@ -1,0 +1,19 @@
+{
+    "name": "kronthto/aceonline-archive",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobias Kronthaler",
+            "email": "kronthto@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kronthto\\AOArchive\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "mdurrant/php-binary-reader": "^1.0"
+    }
+}
