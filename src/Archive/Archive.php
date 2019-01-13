@@ -37,8 +37,7 @@ class Archive
 
     public function pack(): string
     {
-        $tmpFile = tempnam(sys_get_temp_dir(), 'CrHex');
-        $stream = fopen($tmpFile, 'wb');
+        $stream = fopen('php://temp', 'rb+');
 
         $writer = new Writer($stream);
 
@@ -52,10 +51,9 @@ class Archive
             $entry->write($writer);
         }
 
+        rewind($stream);
+        $data = stream_get_contents($stream);
         fclose($stream);
-
-        $data = file_get_contents($tmpFile);
-        unlink($tmpFile);
 
         return $data;
     }
