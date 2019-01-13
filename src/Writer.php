@@ -28,7 +28,7 @@ class Writer
 
         // String with padding
         if (\is_string($value)) {
-            fwrite($this->stream, $value);
+            fwrite($this->stream, $value, $length);
             $this->write(0, $length - \strlen($value)); // Pad
             return;
         }
