@@ -35,11 +35,18 @@ class Writer
 
         // Int with padding & endianess
         if (\is_int($value)) {
-            // todo: this is Painful.. - maybe cleaner with pack / X? ......
-            // i feel like it should be possible without converting to bin stringm padding string null, and bindec again
-            $binaryPadded = str_pad(decbin($value), 8 * $length, '0', STR_PAD_LEFT);
-            for ($i = 0; $i < $length; ++$i) {
-                $byte = substr($binaryPadded, (($length - 1) - $i) * 8, 8);
+            if ($value < 0) {
+                throw new \BadMethodCallException('Negative integer to binary conversion not implemented');
+            }
+
+            // Still not sure if this can be done way easier / without bindec / padding string zeros to binary
+            // pack is nice but would always make it like 4 bytes :/
+
+            $binary = decbin($value);
+            $binaryPadded = str_pad($binary, 8 * $length, '0', STR_PAD_LEFT);
+
+            for ($i = $length - 1; $i >= 0; --$i) {
+                $byte = substr($binaryPadded, $i * 8, 8);
                 fwrite($this->stream, \chr(bindec($byte)));
             }
 
