@@ -67,4 +67,19 @@ class BinaryWriterTest extends TestCase
         $this->assertSame(1, \ord($data[1])); // 1x 256
         $this->assertSame(44, \ord($data[0]));
     }
+
+    public function testWritingShort()
+    {
+        $buffer = $this->getTestStream();
+
+        $writer = new Writer($buffer);
+
+        $writer->write(66, 2);
+
+        $data = $this->getTestStreamData($buffer);
+
+        $this->assertSame(2, \strlen($data));
+        $this->assertSame(66, unpack('v', $data)[1]);
+        $this->assertStringEndsWith(\chr(0), $data);
+    }
 }
