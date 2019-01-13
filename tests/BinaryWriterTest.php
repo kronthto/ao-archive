@@ -47,7 +47,7 @@ class BinaryWriterTest extends TestCase
         $data = $this->getTestStreamData($buffer);
 
         $this->assertSame(4, \strlen($data));
-        $this->assertSame(66, unpack('I', $data)[1]);
+        $this->assertSame(66, unpack('V', $data)[1]);
         $this->assertStringEndsWith(\chr(0) . \chr(0) . \chr(0), $data);
     }
 
@@ -62,7 +62,7 @@ class BinaryWriterTest extends TestCase
         $data = $this->getTestStreamData($buffer);
 
         $this->assertSame(4, \strlen($data));
-        $this->assertSame(300, unpack('I', $data)[1]);
+        $this->assertSame(300, unpack('V', $data)[1]);
         $this->assertStringEndsWith(\chr(0) . \chr(0), $data);
         $this->assertSame(1, \ord($data[1])); // 1x 256
         $this->assertSame(44, \ord($data[0]));
