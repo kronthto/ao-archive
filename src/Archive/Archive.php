@@ -1,7 +1,8 @@
 <?php
 
-namespace Kronthto\AOArchive;
+namespace Kronthto\AOArchive\Archive;
 
+use Kronthto\AOArchive\Writer;
 use PhpBinaryReader\BinaryReader;
 
 class Archive
@@ -24,7 +25,7 @@ class Archive
             $numItems = $reader->readUInt32();
             $reader->readUInt32(); // skip
 
-            for ($i = 0; $i < $numItems; $i++) {
+            for ($i = 0; $i < $numItems; ++$i) {
                 $this->entries[] = new ArchiveEntry($reader, true);
             }
         } else {
@@ -55,6 +56,7 @@ class Archive
 
         $data = file_get_contents($tmpFile);
         unlink($tmpFile);
+
         return $data;
     }
 
@@ -64,6 +66,7 @@ class Archive
         foreach ($this->entries as $entry) {
             $sum += $entry->size;
         }
+
         return $sum;
     }
 
@@ -72,5 +75,23 @@ class Archive
         foreach ($this->entries as $entry) {
             file_put_contents($path . $entry->name . '-' . $entry->id, $entry->content);
         }
+    }
+
+    /**
+     * @param callable $transformer Gets ArchiveEntry ref as arg1. Must return the new one (passed instance is already cloned)
+     *
+     * @return static
+     */
+    public function map(callable $transformer): self
+    {
+        $new = clone $this;
+
+        foreach ($new->entries as $key => $entry) {
+            $newEntry = clone $entry;
+            $newEntry = $transformer($newEntry);
+            $new->entries[$key] = $newEntry;
+        }
+
+        return $new;
     }
 }

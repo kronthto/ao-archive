@@ -1,7 +1,8 @@
 <?php
 
-namespace Kronthto\AOArchive;
+namespace Kronthto\AOArchive\Archive;
 
+use Kronthto\AOArchive\Writer;
 use PhpBinaryReader\BinaryReader;
 
 class ArchiveEntry
@@ -39,7 +40,7 @@ class ArchiveEntry
                 break;
             }
             $name[$num] = $reader->readBytes(1);
-            $num++;
+            ++$num;
         } while ($num < 12);
 
         $reader->readBytes(12 - $num);
