@@ -12,8 +12,16 @@
             "Kronthto\\AOArchive\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "require": {
         "php": ">=7.1",
         "mdurrant/php-binary-reader": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
     }
 }
