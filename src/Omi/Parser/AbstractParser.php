@@ -15,6 +15,10 @@ abstract class AbstractParser
         foreach ($this->getDefinition() as $name => $type) {
             $this->data[$name] = $this->readValue($reader, $type);
         }
+
+        $this->data = array_filter($this->data, function ($var) {
+            return $var !== null;
+        });
     }
 
     protected function readValue(BinaryReader $reader, $type)

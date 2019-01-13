@@ -3,10 +3,10 @@
 namespace Kronthto\AOArchive\Omi\Reader;
 
 use Kronthto\AOArchive\Omi\Parser\AbstractParser;
-use Kronthto\AOArchive\Omi\Parser\Item;
 use Kronthto\AOArchive\Omi\Parser\Monster;
 use Kronthto\AOArchive\Omi\Parser\MysteryItemDrop;
 use Kronthto\AOArchive\Omi\Parser\RareItemInfo;
+use Kronthto\AOArchive\Omi\Parser\SmallItem;
 
 class OmiReadResult
 {
@@ -43,7 +43,7 @@ class OmiReadResult
         'PET_OPERATOR' => null,
         'PET_LEVELDATA' => null,
         'PET_BASEDATA' => null,
-        'item' => Item::class,
+        'item' => SmallItem::class,
         'MIXING_INFO' => null,
         'DISSOLUTIONITEM' => null,
     ];
