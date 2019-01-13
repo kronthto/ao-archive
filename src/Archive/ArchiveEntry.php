@@ -64,8 +64,7 @@ class ArchiveEntry
         $writer->write($this->id, 4);
         $writer->write($this->size, 4);
         $writer->write(0, 4);
-        $writer->writeRaw($this->name);
-        $writer->write(0, 12 - \strlen($this->name));
+        $writer->write($this->name, 12);
         $writer->writeRaw($this->content);
     }
 }
