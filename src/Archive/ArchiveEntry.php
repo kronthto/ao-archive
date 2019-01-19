@@ -31,32 +31,7 @@ class ArchiveEntry
 
     protected function readName(BinaryReader $reader): string
     {
-        $name = '';
-        $num = 0;
-
-        do {
-            $peekedChar = self::peekBytes($reader, 1);
-            if (\ord($peekedChar) === 0) {
-                break;
-            }
-            $name[$num] = $reader->readBytes(1);
-            ++$num;
-        } while ($num < 12);
-
-        $reader->readBytes(12 - $num);
-
-        return $name;
-    }
-
-    private static function peekBytes(BinaryReader $reader, int $count): string
-    {
-        $currentPos = $reader->getPosition();
-
-        $bytes = $reader->readBytes($count);
-
-        $reader->setPosition($currentPos);
-
-        return $bytes;
+        return rtrim($reader->readString(12));
     }
 
     public function write(Writer $writer): void
