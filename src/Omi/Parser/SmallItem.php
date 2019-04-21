@@ -19,6 +19,8 @@ class SmallItem extends Item
                      'ReqMinLevel',
                      'ReqMaxLevel',
                      'Weight',
+                     'HitRate', // Prob
+                     'FractionResistance', // Pierce
                      'Range',
                      'ReAttacktime',
                      'Time',
