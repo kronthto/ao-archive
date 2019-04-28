@@ -4,7 +4,7 @@ namespace Kronthto\AOArchive\Omi\Parser;
 
 use PhpBinaryReader\BinaryReader;
 
-abstract class AbstractParser
+abstract class AbstractParser implements \JsonSerializable, \ArrayAccess
 {
     protected $data = [];
 
@@ -67,5 +67,30 @@ abstract class AbstractParser
     public function getData(): array
     {
         return $this->data;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->data;
+    }
+
+    public function offsetExists($offset)
+    {
+        return isset($this->data[$offset]);
+    }
+
+    public function offsetGet($offset)
+    {
+        return $this->data[$offset];
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        throw new \BadMethodCallException('Not allowed');
+    }
+
+    public function offsetUnset($offset)
+    {
+        throw new \BadMethodCallException('Not allowed');
     }
 }
