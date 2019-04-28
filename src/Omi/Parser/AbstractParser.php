@@ -29,7 +29,7 @@ abstract class AbstractParser
         }
 
         if (preg_match('/^string(\d+)$/', $type, $matches) === 1) {
-            return trim($reader->readString((int) $matches[1]));
+            return trim(utf8_encode($reader->readString((int) $matches[1])));
         }
 
         switch ($type) {
