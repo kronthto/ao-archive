@@ -4,7 +4,7 @@ namespace Kronthto\AOArchive\Omi\Reader;
 
 abstract class TypeSizes
 {
-    public const ITEM = 472;
+    public const ITEM = 472; // AR.de Client May2019 increased to 576
     public const MONSTER = 136;
     public const MAPOBJECT = 12;
     public const RAREITEM = 112;
