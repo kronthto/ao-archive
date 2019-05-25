@@ -21,4 +21,5 @@ abstract class TypeSizes
     public const PET_BASEDATA = 64;
     public const MIXING_INFO = 60;
     public const DISSOLUTIONITEM = 52;
+    public const CR_UK_18 = 12;
 }

@@ -27,6 +27,7 @@ class OmiReadResult
     public $item = [];
     public $MIXING_INFO = [];
     public $DISSOLUTIONITEM = [];
+    public $CR_UK_18 = [];
 
     protected const PARSERMAPPING = [
         'monsters' => Monster::class,

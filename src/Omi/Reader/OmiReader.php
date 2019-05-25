@@ -108,6 +108,12 @@ class OmiReader
                         $res->PET_LEVELDATA[] = $reader->readBytes(TypeSizes::PET_LEVELDATA);
                     }
                     break;
+                case DbTypes::CR_UK_18:
+                    for ($i = 0; $i < $nDataCount; ++$i) {
+                        // What is this? Do sth with it?
+                        $res->CR_UK_18[] = $reader->readBytes(TypeSizes::CR_UK_18);
+                    }
+                    break;
                 default:
                     throw new \RuntimeException('Undefined nType: ' . $nType . ' - previous: ' . $prevNType);
             }
