@@ -62,7 +62,7 @@ class OmiReadResult
     {
         $new = new static();
 
-        foreach ($this as $ns => $entries) {
+        foreach ($this as $ns => &$entries) {
             foreach ($entries as $key => $entry) {
                 $newEntry = $transformer($entry, $ns);
 
