@@ -32,6 +32,7 @@ class Archive
             if (!\is_array($data)) {
                 throw new \InvalidArgumentException('Expected array of entries for unpacked archive');
             }
+            $this->entries = $data;
         }
     }
 
