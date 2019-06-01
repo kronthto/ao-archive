@@ -71,7 +71,7 @@ class Item extends AbstractParser
             'ShotNum' => 'byte',
             'MultiNum' => 'byte',
             'AttackTime' => 'short',
-            'ReqSP' => 'byte',
+            'ReqSP' => 'uint8',
             'PaddingReqSP' => 1,
             'SummonMonster' => 'int',
             'NextSkill' => 'int',

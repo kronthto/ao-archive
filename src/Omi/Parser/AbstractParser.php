@@ -39,6 +39,8 @@ abstract class AbstractParser implements \JsonSerializable, \ArrayAccess
                 return $reader->readUInt32();
             case 'byte':
                 return $reader->readInt8();
+            case 'uint8':
+                return $reader->readUInt8();
             case 'stat':
                 $stat = [];
                 for ($i = 0; $i < 6; ++$i) {
