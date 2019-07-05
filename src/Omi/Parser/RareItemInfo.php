@@ -5,6 +5,8 @@ namespace Kronthto\AOArchive\Omi\Parser;
 // Fixes
 class RareItemInfo extends AbstractParser
 {
+    // TODO: DesParams array like Item
+
     protected function getDefinition(): array
     {
         return [

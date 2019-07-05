@@ -4,6 +4,8 @@ require_once __DIR__ . '/_init.php';
 
 use Kronthto\AOArchive\Archive\Archive;
 
+// Can also be used to build .eff files
+
 $xFile = new \Kronthto\AOArchive\Archive\ArchiveEntryFromData();
 $xFile->id = 0;
 $xFile->name = '06428040';

@@ -61,12 +61,12 @@ class Archive
 
     protected function sumSizes(): int
     {
-        $sum = 0;
+        $acc = 0;
         foreach ($this->entries as $entry) {
-            $sum += $entry->size;
+            $acc += $entry->size;
         }
 
-        return $sum;
+        return $acc;
     }
 
     public function unpack(string $path): void
