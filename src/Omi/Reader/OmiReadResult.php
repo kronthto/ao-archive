@@ -3,6 +3,7 @@
 namespace Kronthto\AOArchive\Omi\Reader;
 
 use Kronthto\AOArchive\Omi\Parser\AbstractParser;
+use Kronthto\AOArchive\Omi\Parser\MapInfo;
 use Kronthto\AOArchive\Omi\Parser\Monster;
 use Kronthto\AOArchive\Omi\Parser\MysteryItemDrop;
 use Kronthto\AOArchive\Omi\Parser\RareItemInfo;
@@ -34,7 +35,7 @@ class OmiReadResult
         'mapobject' => null,
         'rareitems' => RareItemInfo::class, // Fixes
         'buildingnpc' => null,
-        'mapinfo' => null,
+        'mapinfo' => MapInfo::class,
         'luckymachine' => null,
         'mysteryitemdrop' => MysteryItemDrop::class,
         'INVOKINGWEARITEM_DPNUM' => null,
