@@ -27,6 +27,7 @@ class SmallItem extends Item
                      'ReqUnitKind',
                      'ReqMinLevel',
                      'ReqMaxLevel',
+                     'ReqItemKind',
                      'Weight',
                      'HitRate', // Prob
                      'FractionResistance', // Pierce
