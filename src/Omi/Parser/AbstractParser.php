@@ -50,8 +50,10 @@ abstract class AbstractParser implements \JsonSerializable, \ArrayAccess
                 return $stat;
             case 'short':
                 return $reader->readInt16();
+            case 'ushort':
+                return $reader->readUInt16();
             case 'float':
-                return unpack('f', $reader->readBytes(4))[1];
+                return (float) round(unpack('f', $reader->readBytes(4))[1], 6);
             case 'long':
                 return $reader->readInt64();
             default:
