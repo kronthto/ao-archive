@@ -9,7 +9,7 @@ abstract class TypeSizes
     public const MAPOBJECT = 12;
     public const RAREITEM = 112;
     public const BUILDINGNPC = 1100;
-    public const MAPINFO = 1188;
+    public const MAPINFO = 1248;
     public const LUCKYMACHINE = 228;
     public const MYSTERY_ITEM_DROP = 52;
     public const INVOKINGWEARITEM_DPNUM = 16;
@@ -22,4 +22,7 @@ abstract class TypeSizes
     public const MIXING_INFO = 60;
     public const DISSOLUTIONITEM = 52;
     public const CR_UK_18 = 12;
+    public const CR_UK_19 = 30;
+    public const CR_UK_20 = 120;
+    public const CR_UK_21 = 1248;
 }

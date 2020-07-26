@@ -44,7 +44,7 @@ class SmallItem extends Item
                      'ReqSP',
                      'SummonMonster',
                      'SkillLevel',
-                     'SkillType',
+                     'SkillType', // ? remove again?
                      'SkillTargetType',
                      'ItemAttribute',
                      'BoosterAngle',

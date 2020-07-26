@@ -22,4 +22,7 @@ abstract class DbTypes
     public const DB_MIXING_INFO = 7;
     public const DB_DISSOLUTIONITEM = 16;
     public const CR_UK_18 = 18;
+    public const CR_UK_19 = 19;
+    public const CR_UK_20 = 20;
+    public const CR_UK_21 = 21; // effectinfo
 }

@@ -114,6 +114,18 @@ class OmiReader
                         $res->CR_UK_18[] = $reader->readBytes(TypeSizes::CR_UK_18);
                     }
                     break;
+                case DbTypes::CR_UK_19:
+                    for ($i = 0; $i < $nDataCount; ++$i) {
+                        // What is this? Do sth with it?
+                        $res->CR_UK_19[] = $reader->readBytes(TypeSizes::CR_UK_19);
+                    }
+                    break;
+                case DbTypes::CR_UK_20:
+                    $reader->setPosition($reader->getPosition() + ($nDataCount * TypeSizes::CR_UK_20)); // Just skip
+                    break;
+                case DbTypes::CR_UK_21:
+                    $reader->setPosition($reader->getPosition() + ($nDataCount * TypeSizes::CR_UK_21)); // Just skip
+                    break;
                 default:
                     throw new \RuntimeException('Undefined nType: ' . $nType . ' - previous: ' . $prevNType);
             }
