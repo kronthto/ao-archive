@@ -72,7 +72,7 @@ class Archive
     public function unpack(string $path): void
     {
         foreach ($this->entries as $entry) {
-            file_put_contents($path . $entry->name . '-' . $entry->id, $entry->content);
+            file_put_contents($path . mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $entry->name) . '-' . $entry->id, $entry->content);
         }
     }
 
